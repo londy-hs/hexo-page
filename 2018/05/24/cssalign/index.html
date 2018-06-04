@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/upload/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="html,css," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Londy的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="CSS布局-对齐方式,主要介绍关于在重构页面中遇到的各种水平居中及垂直居中的问题。">
+<meta name="keywords" content="html,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS布局-对齐方式">
+<meta property="og:url" content="http://londy.cc/2018/05/24/cssalign/index.html">
+<meta property="og:site_name" content="Londy的博客">
+<meta property="og:description" content="CSS布局-对齐方式,主要介绍关于在重构页面中遇到的各种水平居中及垂直居中的问题。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApAAAAA3CAYAAAC7M3ovAAADrElEQVR4nO3d%0Av2pbVxzA8Z9L6AsIUtDcwYsLxTIdOkUYJDI0D5AuEQUZjx3sgDXKYHfwaCwI%0A8tJnMDaYmzlYEHAXv0AFNWjv5urGfyLbSslR6l4kfz4gDfceXZ3xi849V3ML%0Aiz9eBAAAfKYnX8ffRc8B4It0Op2ipzCRZrNZ9BQAJvJV0RMAAGC6CEgAAJII%0ASAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJII%0ASAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJI8%0AKXoCAP+F0zeVaOyNObHSjd4v3/3v8wGYZQISmCGr0e014mMuDuLwdS0qleGZ%0A/V40FgqcGsAMsYQNzLBS1Ld60dtfjd1Xa3F4XvR8AGaDgARm38KLaC9n0do5%0AjMHo8fPDWKtUonL9en37fL4sXql04/TOuO4f+dn8182Rz745HfPFp9Edvf7w%0AtXY0GDMOYLoISOARKMXSs2rEcT/+vD6UR+HzVsTmUfR6veHrKNrRitqdiIzY%0AjcZOxPr1mOXhkVd5DNai/7J3+dmDdlT3Grfj8EN0NuLs5vqX42Kj9onYBJge%0AAhJ4FErl+eH7WfQ/LGMP4nCnFdlyO9ZrpesRUX+5OozMLE5uLXVXo/1rPUqj%0AY3Ir3Y/3VD5diuowLLO3J1fxOe76+bh6rG8OQ3bvd8vpwFQTkMDjc34S2fEw%0ADZ8tRWn0+DflYS5m0f9r9OB8lJ/eHROx+sPozu5SlL/9jOvnI7+vjvkOgOli%0AFzbwKAz6Z3ETg1e//mX5cvLGmMH9QcTC3fRLN1/+9DXO+u6FBKaXgAQegUGc%0AvM0iVn6O0d8NH/rRPmf/EqJ5XL57uK8GeFCWsIGZNzjajtZxNdo/XeXj1T2L%0Au+8eaDPLvXsiR+byPossVqPimZTAFBOQwAy7fNRObSOiffBb1G/uZbzaDDNu%0A5/S9XdiTuN6Q04rtO9ff3siiuvki/DcOMM0sYQMzZDcald1bR6r5Y3S2xiwj%0ALzSitx9ReTVyH+RyO4626vc2vkwkv/5BOdae377P0j/iALNgbnFx8aLoSQB8%0AiU6nU/QUJtJsNoueAsBELGEDAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQ%0AREACAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQ%0AREACAJBEQAIAkERAAgCQREACAJBk7mKo6EkAADA9/gH4yOtgvIhNpgAAAABJ%0ARU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApIAAAA1CAYAAADyDgsZAAABRklEQVR4nO3Z%0AIQ7CQBRF0UIaXPeAQrKtrqnrrMFBRpAgyTWF5Bwz9smb+afr7f5clmXa930C%0AAIBvnY8eAADAf5rHb+TwfgEA4BvzOGmPiLxMj6O3AB+2bTt6AvysdV2PngBM%0ATtsAAERCEgCAREgCAJAISQAAEiEJAEAiJAEASIQkAACJkAQAIBGSAAAkQhIA%0AgERIAgCQCEkAABIhCQBAIiQBAEiEJAAAiZAEACARkgAAJEISAIBESAIAkAhJ%0AAAASIQkAQCIkAQBIhCQAAImQBAAgEZIAACRCEgCAREgCAJAISQAAEiEJAEAi%0AJAEASIQkAACJkAQAIBGSAAAkQhIAgERIAgCQCEkAABIhCQBAIiQBAEiEJAAA%0AiZAEACARkgAAJEISAIBESAIAkAhJAAASIQkAQCIkAQBIhCQAAImQBAAgEZIA%0AACQvpN8MLeyfdmAAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApoAAAAqCAYAAAATWfujAAAC5klEQVR4nO3d%0AMWsbZxgH8MfFZNNUTZmirUu65DIZCvoCMYV4MdpCSrylHdrJGZypS9AWU/Bm%0AvMiL+gVUUjrpXfoJlCmTt1uypXdKsaXabUrbN++h/n6gAx1C/Mc/z3Mvt3X3%0A3s67uq4D+Li++O6H+PrTn+LLb89KRwGAa36d//yv/2P7P8gB/AOvvv8qXpUO%0AAQAZfVI6AAAAm2mrXZ2XDgEAwOZZrs5vxdvSOQAA2DBW5wAAZKFoAgCQhaIJ%0AAEAWiiYAAFkomgAAZKFoAgCQhaIJAEAWiiYAAFkomgAAZKFoAgCQhaIJAEAW%0AiiYAAFlslw4AsPRsEml4EePhQZyWzhKHMUm7MVi5U6dxDJ+UTzY6nsXTqnf5%0AvSu5AG5iogmUtf8yZilFejD48G8/ksPz3eg3Ba6qqvefF/OI6mmk88OywZoy%0A/ihOrnL9uIhek2t2PCqbC+BPKJpAMe10Lj2OOGlK0/R16TRXnj+s1qeEZwdx%0AkuqIO59H0ap5tLee62ga8yZWr9+dkg6wyuocKOb0yfByTV54VghABiaaAH/D%0AoN+LqC9iUTrIitHxo7jfW8T04fPSUQBuZKIJ8AHtin/3Tnvw5pfiB5UOz9My%0Ay9LraVSVkgl0l6IJ8Bcui11T6rpwurt9fvSyWrYn9VNy8hzoLKtzgJv8fhr+%0A/SRzHFUX19NHezFOdfSqXc+4Ap2kaAL8UVsyv7kfvVjEtKo6PS08fXPRXPtx%0Ae790EoDrFE2ANaN4+bgpmfU8xtVedHCOuWZ0u99cL+LNWekkANcpmgCr9nfi%0As17EYtaFNxStagrwbLK+In82Wb4lqE7Tzhdi4P/JYSCAGwwetG8run6/3MGb%0A0zgYDmLSvkXpKk3MX1RxYJoJdNTW3Xs7727F29I5AADYMFbnAABkoWgCAJCF%0AogkAQBaKJgAAWSiaAABkoWgCAJCFogkAQBaKJgAAWSiaAABkoWgCAJCFogkA%0AQBbb7SWlVDoHAAAb5jd4s6J56lROqAAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,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%0AKgb+AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApoAAABoCAYAAABRyVDEAAAEnElEQVR4nO3d%0Av0ubeRzA8U8P6eYUcMitHbro0sgNnRqESJf+A10udCiODio0YxzsULhFFCRd%0A7v6Fw4Dk/gADB3bp0K1cByGTS7deYlJN4o9K6+fihdcLEjD5Ps/zHd88z/cb%0A780/evzl5OQkAADgNv006QkAADCdZnpvs7Ozk54HAABT5jQ078fnSc8DAIAp%0A49E5AAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAAClmem+7u7uTngcAAFPGHU0AAFIITQAAUghNAABSfDM0j/ZK%0AUSo14ui/mA0AAFPDHU0AAFIITQAAUghNAABSjIbm8X6slXprMvuvtWbnisM6%0Asb9xPq5UWov946Gv3zVOP2+8Gxu311/p2WmuDR17+frP/trQodfGflw1GwAA%0A7p7z0OzF4dNaxGYz2u326Ws9tqK6M35ILx4rUYt6NAfjmpsRtadjsdm1/etW%0AxOrXMeWIneppNFY+Ph9coxn1pe2ojkRkP06rH87Pfzque8WKTUkAAP8bg9Ds%0Axt0f2xFL9VivFM6+LFTWuyE4ekCnuRW1g3LUV5ejcDbueaxEK1p/j95zLG+u%0Ax/Lc8JielWi8WPh6ZCw+6QboQSsOj68+f2/c8mo9yrEdv195lxUAgLukH5rH%0Ah9E66Ibhk8WhuOspRPHB8N+dOPyr1Q3ScizODX/+cxS7Qdr6+M/I0Q+LhQtj%0A4mUpFoY+LRQf3uD8XXOLUb7kGgAA3E0zw3+MhuE1DnqPsWuXfPGpm4oLccOz%0AXO1B8epzfLilawAAkGokNN9/6kTM3yDhXjai/WLh2+O+13UxeV2EAgBwZ/Qf%0Anc8Vo/cA++Jj6aNoj2wGGqyp3Gknbcq5uGbzzODx/soviYELAMCtGWwGWohn%0Ag13hwz9pdLRXje2xA/qbei7bKX5x1/n3+LqxqPZm7PxvatFaqsez+R+/BgAA%0A+c4enRcqr6MZa1F5VYnSq/5nK2/b0YjS2E8cLUS13YgoVYfWaZaj/ufrsx3m%0AP6Z3/mYUNyqj60CzH9cDAHCr7s0/evzl7e5vk54HAABTxr+gBAAghdAEACCF%0A0AQAIMXpGs378XnS8wAAYMq4owkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAECKmd5bu92e9DwAAJgy%0A/wIivOy+BL7z6QAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,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%0AAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,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%0AAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,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%0ARU5ErkJggg==">
+<meta property="og:updated_time" content="2018-06-04T02:56:15.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS布局-对齐方式">
+<meta name="twitter:description" content="CSS布局-对齐方式,主要介绍关于在重构页面中遇到的各种水平居中及垂直居中的问题。">
+<meta name="twitter:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApAAAAA3CAYAAAC7M3ovAAADrElEQVR4nO3d%0Av2pbVxzA8Z9L6AsIUtDcwYsLxTIdOkUYJDI0D5AuEQUZjx3sgDXKYHfwaCwI%0A8tJnMDaYmzlYEHAXv0AFNWjv5urGfyLbSslR6l4kfz4gDfceXZ3xi849V3ML%0Aiz9eBAAAfKYnX8ffRc8B4It0Op2ipzCRZrNZ9BQAJvJV0RMAAGC6CEgAAJII%0ASAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJII%0ASAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJI8%0AKXoCAP+F0zeVaOyNObHSjd4v3/3v8wGYZQISmCGr0e014mMuDuLwdS0qleGZ%0A/V40FgqcGsAMsYQNzLBS1Ld60dtfjd1Xa3F4XvR8AGaDgARm38KLaC9n0do5%0AjMHo8fPDWKtUonL9en37fL4sXql04/TOuO4f+dn8182Rz745HfPFp9Edvf7w%0AtXY0GDMOYLoISOARKMXSs2rEcT/+vD6UR+HzVsTmUfR6veHrKNrRitqdiIzY%0AjcZOxPr1mOXhkVd5DNai/7J3+dmDdlT3Grfj8EN0NuLs5vqX42Kj9onYBJge%0AAhJ4FErl+eH7WfQ/LGMP4nCnFdlyO9ZrpesRUX+5OozMLE5uLXVXo/1rPUqj%0AY3Ir3Y/3VD5diuowLLO3J1fxOe76+bh6rG8OQ3bvd8vpwFQTkMDjc34S2fEw%0ADZ8tRWn0+DflYS5m0f9r9OB8lJ/eHROx+sPozu5SlL/9jOvnI7+vjvkOgOli%0AFzbwKAz6Z3ETg1e//mX5cvLGmMH9QcTC3fRLN1/+9DXO+u6FBKaXgAQegUGc%0AvM0iVn6O0d8NH/rRPmf/EqJ5XL57uK8GeFCWsIGZNzjajtZxNdo/XeXj1T2L%0Au+8eaDPLvXsiR+byPossVqPimZTAFBOQwAy7fNRObSOiffBb1G/uZbzaDDNu%0A5/S9XdiTuN6Q04rtO9ff3siiuvki/DcOMM0sYQMzZDcald1bR6r5Y3S2xiwj%0ALzSitx9ReTVyH+RyO4626vc2vkwkv/5BOdae377P0j/iALNgbnFx8aLoSQB8%0AiU6nU/QUJtJsNoueAsBELGEDAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQ%0AREACAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQ%0AREACAJBEQAIAkERAAgCQREACAJBk7mKo6EkAADA9/gH4yOtgvIhNpgAAAABJ%0ARU5ErkJggg==">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://londy.cc/2018/05/24/cssalign/"/>
+
+
+
+
+
+  <title>CSS布局-对齐方式 | Londy的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cc3141800c2d33d5810c05a683b9c424";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Londy的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天的今天都是唯一的</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar-check-o"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://londy.cc/2018/05/24/cssalign/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Londy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/upload/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Londy的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS布局-对齐方式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T15:24:21+08:00">
+                2018-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/24/cssalign/" class="leancloud_visitors" data-flag-title="CSS布局-对齐方式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,067
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </span>
+          
+
+          
+              <div class="post-description">
+                  CSS布局-对齐方式,主要介绍关于在重构页面中遇到的各种水平居中及垂直居中的问题。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><h3 id="行内元素的水平居中"><a href="#行内元素的水平居中" class="headerlink" title="行内元素的水平居中"></a>行内元素的水平居中</h3><p>如果被设置元素为文本、图片等行内元素时，在父元素中设置<code>text-align:center</code>实现行内元素水平居中，将子元素的display设置为inline-block，使子元素变成行内元素，这时候行内元素不会继承父元素的宽度，它宽度为其内容的宽度；</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApAAAAA3CAYAAAC7M3ovAAADrElEQVR4nO3d%0Av2pbVxzA8Z9L6AsIUtDcwYsLxTIdOkUYJDI0D5AuEQUZjx3sgDXKYHfwaCwI%0A8tJnMDaYmzlYEHAXv0AFNWjv5urGfyLbSslR6l4kfz4gDfceXZ3xi849V3ML%0Aiz9eBAAAfKYnX8ffRc8B4It0Op2ipzCRZrNZ9BQAJvJV0RMAAGC6CEgAAJII%0ASAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJII%0ASAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJIISAAAkghIAACSCEgAAJI8%0AKXoCAP+F0zeVaOyNObHSjd4v3/3v8wGYZQISmCGr0e014mMuDuLwdS0qleGZ%0A/V40FgqcGsAMsYQNzLBS1Ld60dtfjd1Xa3F4XvR8AGaDgARm38KLaC9n0do5%0AjMHo8fPDWKtUonL9en37fL4sXql04/TOuO4f+dn8182Rz745HfPFp9Edvf7w%0AtXY0GDMOYLoISOARKMXSs2rEcT/+vD6UR+HzVsTmUfR6veHrKNrRitqdiIzY%0AjcZOxPr1mOXhkVd5DNai/7J3+dmDdlT3Grfj8EN0NuLs5vqX42Kj9onYBJge%0AAhJ4FErl+eH7WfQ/LGMP4nCnFdlyO9ZrpesRUX+5OozMLE5uLXVXo/1rPUqj%0AY3Ir3Y/3VD5diuowLLO3J1fxOe76+bh6rG8OQ3bvd8vpwFQTkMDjc34S2fEw%0ADZ8tRWn0+DflYS5m0f9r9OB8lJ/eHROx+sPozu5SlL/9jOvnI7+vjvkOgOli%0AFzbwKAz6Z3ETg1e//mX5cvLGmMH9QcTC3fRLN1/+9DXO+u6FBKaXgAQegUGc%0AvM0iVn6O0d8NH/rRPmf/EqJ5XL57uK8GeFCWsIGZNzjajtZxNdo/XeXj1T2L%0Au+8eaDPLvXsiR+byPossVqPimZTAFBOQwAy7fNRObSOiffBb1G/uZbzaDDNu%0A5/S9XdiTuN6Q04rtO9ff3siiuvki/DcOMM0sYQMzZDcald1bR6r5Y3S2xiwj%0ALzSitx9ReTVyH+RyO4626vc2vkwkv/5BOdae377P0j/iALNgbnFx8aLoSQB8%0AiU6nU/QUJtJsNoueAsBELGEDAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQ%0AREACAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQREACAJBEQAIAkERAAgCQ%0AREACAJBEQAIAkERAAgCQREACAJBk7mKo6EkAADA9/gH4yOtgvIhNpgAAAABJ%0ARU5ErkJggg==" alt="行内元素"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Demo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="块状元素的水平居中（定宽）"><a href="#块状元素的水平居中（定宽）" class="headerlink" title="块状元素的水平居中（定宽）"></a>块状元素的水平居中（定宽）</h3><p>当被设置元素为定宽块级元素时用 <code>text-align:center</code> 就不起作用了。可以通过设置“左右margin”值为“auto”来实现居中的。</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApIAAAA1CAYAAADyDgsZAAABRklEQVR4nO3Z%0AIQ7CQBRF0UIaXPeAQrKtrqnrrMFBRpAgyTWF5Bwz9smb+afr7f5clmXa930C%0AAIBvnY8eAADAf5rHb+TwfgEA4BvzOGmPiLxMj6O3AB+2bTt6AvysdV2PngBM%0ATtsAAERCEgCAREgCAJAISQAAEiEJAEAiJAEASIQkAACJkAQAIBGSAAAkQhIA%0AgERIAgCQCEkAABIhCQBAIiQBAEiEJAAAiZAEACARkgAAJEISAIBESAIAkAhJ%0AAAASIQkAQCIkAQBIhCQAAImQBAAgEZIAACRCEgCAREgCAJAISQAAEiEJAEAi%0AJAEASIQkAACJkAQAIBGSAAAkQhIAgERIAgCQCEkAABIhCQBAIiQBAEiEJAAA%0AiZAEACARkgAAJEISAIBESAIAkAhJAAASIQkAQCIkAQBIhCQAAImQBAAgEZIA%0AACQvpN8MLeyfdmAAAAAASUVORK5CYII=" alt="块状元素的水平居中（定宽）"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="块状元素的水平居中（不定定宽）"><a href="#块状元素的水平居中（不定定宽）" class="headerlink" title="块状元素的水平居中（不定定宽）"></a>块状元素的水平居中（不定定宽）</h3><p>在实际工作中我们会遇到需要为“不定宽度的块级元素”设置居中，比如网页上的分页导航，因为分页的数量是不确定的，所以我们不能通过设置宽度来限制它的弹性。</p>
+<p>可以直接给不定宽的块级元素设置text-align：center来实现，也可以给父元素加text-align:center 来实现居中效果。（文字内容区域居中）</p>
+<p>当不定宽块级元素的宽度不要占一行时，可以设置display 为 inline 类型或inline-block（设置为 行内元素 显示或行内块元素）</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApoAAAAqCAYAAAATWfujAAAC5klEQVR4nO3d%0AMWsbZxgH8MfFZNNUTZmirUu65DIZCvoCMYV4MdpCSrylHdrJGZypS9AWU/Bm%0AvMiL+gVUUjrpXfoJlCmTt1uypXdKsaXabUrbN++h/n6gAx1C/Mc/z3Mvt3X3%0A3s67uq4D+Li++O6H+PrTn+LLb89KRwGAa36d//yv/2P7P8gB/AOvvv8qXpUO%0AAQAZfVI6AAAAm2mrXZ2XDgEAwOZZrs5vxdvSOQAA2DBW5wAAZKFoAgCQhaIJ%0AAEAWiiYAAFkomgAAZKFoAgCQhaIJAEAWiiYAAFkomgAAZKFoAgCQhaIJAEAW%0AiiYAAFlslw4AsPRsEml4EePhQZyWzhKHMUm7MVi5U6dxDJ+UTzY6nsXTqnf5%0AvSu5AG5iogmUtf8yZilFejD48G8/ksPz3eg3Ba6qqvefF/OI6mmk88OywZoy%0A/ihOrnL9uIhek2t2PCqbC+BPKJpAMe10Lj2OOGlK0/R16TRXnj+s1qeEZwdx%0AkuqIO59H0ap5tLee62ga8yZWr9+dkg6wyuocKOb0yfByTV54VghABiaaAH/D%0AoN+LqC9iUTrIitHxo7jfW8T04fPSUQBuZKIJ8AHtin/3Tnvw5pfiB5UOz9My%0Ay9LraVSVkgl0l6IJ8Bcui11T6rpwurt9fvSyWrYn9VNy8hzoLKtzgJv8fhr+%0A/SRzHFUX19NHezFOdfSqXc+4Ap2kaAL8UVsyv7kfvVjEtKo6PS08fXPRXPtx%0Ae790EoDrFE2ANaN4+bgpmfU8xtVedHCOuWZ0u99cL+LNWekkANcpmgCr9nfi%0As17EYtaFNxStagrwbLK+In82Wb4lqE7Tzhdi4P/JYSCAGwwetG8run6/3MGb%0A0zgYDmLSvkXpKk3MX1RxYJoJdNTW3Xs7727F29I5AADYMFbnAABkoWgCAJCF%0AogkAQBaKJgAAWSiaAABkoWgCAJCFogkAQBaKJgAAWSiaAABkoWgCAJCFogkA%0AQBbb7SWlVDoHAAAb5jd4s6J56lROqAAAAABJRU5ErkJggg==" alt="块状元素的水平居中（不定定宽）"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>:center;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#333</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">list-style</span>:none;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">display</span>:inline-block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">margin-right</span>:<span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">display</span>:inline-block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、垂直居中"><a href="#二、垂直居中" class="headerlink" title="二、垂直居中"></a>二、垂直居中</h2><p>首先设定两个条件，父元素是盒子元素且高度已经固定</p>
+<h3 id="子元素是行内元素，高度是由其内容撑开"><a href="#子元素是行内元素，高度是由其内容撑开" class="headerlink" title="子元素是行内元素，高度是由其内容撑开"></a>子元素是行内元素，高度是由其内容撑开</h3><p>这种情况下，需要通过设定父元素的<code>line-height</code>为其高度来使得子元素垂直居中（line-height子元素是可以继承的，所以给父元素或者子元素设置都可以）</p>
+<p><img src="data:image/png;base64,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%0AKgb+AAAAAElFTkSuQmCC" alt="垂直居中"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="子元素是块级元素（定高或者不定高）"><a href="#子元素是块级元素（定高或者不定高）" class="headerlink" title="子元素是块级元素（定高或者不定高）"></a>子元素是块级元素（定高或者不定高）</h3><p>在这里可以使用相对定位进行操作</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApoAAABoCAYAAABRyVDEAAAEnElEQVR4nO3d%0Av0ubeRzA8U8P6eYUcMitHbro0sgNnRqESJf+A10udCiODio0YxzsULhFFCRd%0A7v6Fw4Dk/gADB3bp0K1cByGTS7deYlJN4o9K6+fihdcLEjD5Ps/zHd88z/cb%0A780/evzl5OQkAADgNv006QkAADCdZnpvs7Ozk54HAABT5jQ078fnSc8DAIAp%0A49E5AAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAAKYQmAAAphCYAACmEJgAA%0AKYQmAAAphCYAAClmem+7u7uTngcAAFPGHU0AAFIITQAAUghNAABSfDM0j/ZK%0AUSo14ui/mA0AAFPDHU0AAFIITQAAUghNAABSjIbm8X6slXprMvuvtWbnisM6%0Asb9xPq5UWov946Gv3zVOP2+8Gxu311/p2WmuDR17+frP/trQodfGflw1GwAA%0A7p7z0OzF4dNaxGYz2u326Ws9tqK6M35ILx4rUYt6NAfjmpsRtadjsdm1/etW%0AxOrXMeWIneppNFY+Ph9coxn1pe2ojkRkP06rH87Pfzque8WKTUkAAP8bg9Ds%0Axt0f2xFL9VivFM6+LFTWuyE4ekCnuRW1g3LUV5ejcDbueaxEK1p/j95zLG+u%0Ax/Lc8JielWi8WPh6ZCw+6QboQSsOj68+f2/c8mo9yrEdv195lxUAgLukH5rH%0Ah9E66Ibhk8WhuOspRPHB8N+dOPyr1Q3ScizODX/+cxS7Qdr6+M/I0Q+LhQtj%0A4mUpFoY+LRQf3uD8XXOLUb7kGgAA3E0zw3+MhuE1DnqPsWuXfPGpm4oLccOz%0AXO1B8epzfLilawAAkGokNN9/6kTM3yDhXjai/WLh2+O+13UxeV2EAgBwZ/Qf%0Anc8Vo/cA++Jj6aNoj2wGGqyp3Gknbcq5uGbzzODx/soviYELAMCtGWwGWohn%0Ag13hwz9pdLRXje2xA/qbei7bKX5x1/n3+LqxqPZm7PxvatFaqsez+R+/BgAA%0A+c4enRcqr6MZa1F5VYnSq/5nK2/b0YjS2E8cLUS13YgoVYfWaZaj/ufrsx3m%0AP6Z3/mYUNyqj60CzH9cDAHCr7s0/evzl7e5vk54HAABTxr+gBAAghdAEACCF%0A0AQAIMXpGs378XnS8wAAYMq4owkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJ%0AAEAKoQkAQAqhCQBACqEJAEAKoQkAQAqhCQBACqEJAECKmd5bu92e9DwAAJgy%0A/wIivOy+BL7z6QAAAABJRU5ErkJggg==" alt="子元素是块级元素（定高或者不定高）"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h3><h3 id="水平对齐-行高"><a href="#水平对齐-行高" class="headerlink" title="水平对齐+行高"></a>水平对齐+行高</h3><p><img src="data:image/png;base64,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%0AAABJRU5ErkJggg==" alt="水平对齐+行高"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrap</span> <span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="水平-垂直对齐"><a href="#水平-垂直对齐" class="headerlink" title="水平+垂直对齐"></a>水平+垂直对齐</h3><h4 id="text-align-vertical-align"><a href="#text-align-vertical-align" class="headerlink" title="text-align + vertical-align"></a>text-align + vertical-align</h4><p>在父元素设置text-align和vertical-align，并将父元素设置为table-cell元素，子元素设置为inline-block元素</p>
+<p><img src="data:image/png;base64,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%0AAABJRU5ErkJggg==" alt="水平+垂直对齐"></p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1%</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">80px</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="若子元素是图像，可不使用table-cell，父元素用行高替代高度，且字体大小设为0。子元素本身设置vertical-align-middle"><a href="#若子元素是图像，可不使用table-cell，父元素用行高替代高度，且字体大小设为0。子元素本身设置vertical-align-middle" class="headerlink" title="若子元素是图像，可不使用table-cell，父元素用行高替代高度，且字体大小设为0。子元素本身设置vertical-align:middle"></a>若子元素是图像，可不使用table-cell，父元素用行高替代高度，且字体大小设为0。子元素本身设置vertical-align:middle</h4><p>既然设置为内联那么就会受空白区域的影响，这时候就需要用<code>font-size:0</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="相对-绝对定位"><a href="#相对-绝对定位" class="headerlink" title="相对+绝对定位"></a>相对+绝对定位</h3><p>使用absolute，利用绝对定位元素的盒模型特性，在偏移属性为确定值的基础上，设置margin:auto</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApwAAACjCAYAAAAn+M70AAAF9UlEQVR4nO3d%0AsWpbVwDH4eMSsmkyJKBQyFBCFwtKVTJ0MwaFLH2Adoko2PgB3EA8JkP9ACGG%0AoDxDlmBD8NIpVBDiLHmBBmrwlCWbeyVbtiQ7dtv4j2Tn+8B2fHV070mmH/cc%0A3czcvNXYKwdqtVr58OFDAQCAgTd//vFZ7//qnOYBAAAnEpwAAETNzH3/497Z%0AwwAA4P+5Mrxns7eH82r5OMHpAABw2VhSBwAgSnACABAlOAEAiBKcAABECU4A%0AAKIEJwAAUYITAIAowQkAQJTgBAAgSnACABAlOAEAiBKcAABECU4AAKIEJwAA%0AUYITAIAowQkAQJTgBAAgSnACABAlOAEAiBKcAABECU4AAKIEJwAAUYITAIAo%0AwQkAQJTgBAAgSnACABAlOAEAiBKcAABECU4AAKIEJwAAUYITAIAowQkAQJTg%0ABAAgSnACABAlOAEAiBKcAABECU4AAKIEJwAAUYITAIAowQkAQJTgBAAgSnAC%0AABAlOAEAiBKcAABECU4AAKIEJwAAUYITAIAowQkAQJTgBAAgSnACABAlOAEA%0AiBKcAABECU4AAKIEJwAAUVcmPQGA06yvr096Chfa4uLipKcA4A4nAABZghMA%0AgCjBCQBAlOAELqadjbLSbJaVzd1JzwSAMwhOAACiBCcAAFGCEwCAKMEJXAjb%0AT5ul2Rx8dcr2pwa+7QyNq76eDo/cLRv3q2P3N8ruyLiVsrHTv0rpDL33xP2h%0AB3tHh6/ReXvuf12AS8WD34Ep14vEVll9uVw63XZp9I/1wrBdtqo/zQ8P7UXk%0Avcdl+Vm3tOeOxlVJWLq/No7GvVwtrW+qY93u4ZjVu82yWp3t4Ytu6V4bnKtV%0AOvXBuUbPvzZyrFnePdosa63Z7D8FwAXlDicw3d4+r2KzVJE3iM2eRmk/Wx4b%0AWIVjFYNlqXMUiNW4nx5VSfqkO3ZHtIrXwwA9GFOZf/RbuXPt4PBcs/Su8PjV%0A4J0nnb83rl06S6VsPXj+6buuAF84wQlMte1XVeRV6decG3vhen3s7ma39Efe%0AbowMm61/W31/V97vDB1cqJcbx8bMl/nvhu9Q3ij1hbPP39O4vXz8GgAcsqQO%0ATL+xQDzN43vNfhiOe/939e3aCS/8J/Olfv1Tr22d0zUALh/BCUy/l+/LX9WP%0As3dI9vZgrh0ti5+706LytBgF+LJZUgem2o2vewvnx5erd19v9T80dKi/57I6%0A9jr0Pw8d29N5pL/svzBffnB3E+BEghOYarOtX/ohuXp36FFIOxvl9wdbYyP3%0AP/yz9aA1+pii3qfIn57Hx3kGH0BqHzt/+0kpyz/f+Rd3YAG+TJbUgSnXKO1u%0Ap5Rmu7SbB7szFx6WzRcPS7m7OjJytrVWNstKaQ3v41waeyTSZ+idv1vffwzS%0A0T7R/Ucp5ZbxAS6+mZu3GnuDX2q1WrlaPk5wOgCj1tfXJz2FC21xcXHSUwCw%0ApA4AQJbgBAAgSnACABAlOAEAiBKcAABECU4AAKIEJwAAUYITAIAowQkAQJTg%0ABAAgSnACABAlOAEAiBKcAABECU4AAKIEJwAAUYITAIAowQkAQJTgBAAgSnAC%0AABAlOAEAiBKcAABECU4AAKIEJwAAUYITAIAowQkAQJTgBAAgSnACABAlOAEA%0AiBKcAABECU4AAKIEJwAAUYITAIComZu3GnuDX2q1WrlaPk5wOgAAXDbucAIA%0AECU4AQCIEpwAAEQJTgAAogQnAABRghMAgCjBCQBAlOAEACBKcAIAECU4AQCI%0AEpwAAEQJTgAAogQnAABRghMAgCjBCQBAlOAEACBKcAIAECU4AQCIEpwAAEQJ%0ATgAAogQnAABRghMAgCjBCQBAlOAEACBKcAIAECU4AQCIEpwAAEQJTgAAogQn%0AAABRghMAgCjBCQBAlOAEACBKcAIAECU4AQCIEpwAAEQJTgAAogQnAABRghMA%0AgCjBCQBAlOAEACBKcAIAECU4AQCIEpwAAEQJTgAAogQnAABRghMAgCjBCQBA%0AlOAEACBKcAIAECU4AQCIEpwAAEQJTgAAogQnAABR/wD3aOBvHl31mgAAAABJ%0ARU5ErkJggg==" alt="相对+绝对定位"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#333</span>; </span><br><span class="line"><span class="comment">/*     height:100px;  */</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">80px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">本文结束<i class="fa fa-paw"></i>感谢您的阅读</div>
+    
+</div>
+      
+    </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> html</a>
+          
+            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/08/ued-family/" rel="next" title="UED 素质扩展之趣味乒乓球比赛">
+                <i class="fa fa-chevron-left"></i> UED 素质扩展之趣味乒乓球比赛
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/25/layout/" rel="prev" title="七种实现左侧固定，右侧自适应两栏布局的方法">
+                七种实现左侧固定，右侧自适应两栏布局的方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/upload/touxiang.jpg"
+                alt="Londy" />
+            
+              <p class="site-author-name" itemprop="name">Londy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/londy-hs" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:londyweiai@163.com" target="_blank" title="邮箱">
+                    
+                      <i class="fa fa-fw fa-envelope-square"></i>邮箱</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                知识获取
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.uisdc.com/" title="优设" target="_blank">优设</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wf.uisdc.com/cn/" title="google前端开发基础" target="_blank">google前端开发基础</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.jeay.net/" title="jeeaay" target="_blank">jeeaay</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、水平居中"><span class="nav-number">1.</span> <span class="nav-text">一、水平居中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素的水平居中"><span class="nav-number">1.1.</span> <span class="nav-text">行内元素的水平居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块状元素的水平居中（定宽）"><span class="nav-number">1.2.</span> <span class="nav-text">块状元素的水平居中（定宽）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块状元素的水平居中（不定定宽）"><span class="nav-number">1.3.</span> <span class="nav-text">块状元素的水平居中（不定定宽）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、垂直居中"><span class="nav-number">2.</span> <span class="nav-text">二、垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子元素是行内元素，高度是由其内容撑开"><span class="nav-number">2.1.</span> <span class="nav-text">子元素是行内元素，高度是由其内容撑开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子元素是块级元素（定高或者不定高）"><span class="nav-number">2.2.</span> <span class="nav-text">子元素是块级元素（定高或者不定高）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#水平垂直居中"><span class="nav-number">2.3.</span> <span class="nav-text">水平垂直居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#水平对齐-行高"><span class="nav-number">2.4.</span> <span class="nav-text">水平对齐+行高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#水平-垂直对齐"><span class="nav-number">2.5.</span> <span class="nav-text">水平+垂直对齐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#text-align-vertical-align"><span class="nav-number">2.5.1.</span> <span class="nav-text">text-align + vertical-align</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#若子元素是图像，可不使用table-cell，父元素用行高替代高度，且字体大小设为0。子元素本身设置vertical-align-middle"><span class="nav-number">2.5.2.</span> <span class="nav-text">若子元素是图像，可不使用table-cell，父元素用行高替代高度，且字体大小设为0。子元素本身设置vertical-align:middle</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对-绝对定位"><span class="nav-number">2.6.</span> <span class="nav-text">相对+绝对定位</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Londy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by"><a class="theme-link" target="_blank" href="/">Webmaster : Londy</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("hhvu2zFRp71eYu5YhpbxKVJs-gzGzoHsz", "9lJXUfBWNmmEUWKtjlaHNnqW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/Clicklove.js"></script>
+</body>
+</html>
