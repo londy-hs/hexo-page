@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Vh和Vw的简介和使用]]></title>
+    <title><![CDATA[Vh和Vw的基本认识]]></title>
     <url>%2F2018%2F07%2F04%2Fvw-wh%2F</url>
-    <content type="text"><![CDATA[文章地址全面介绍页面单位元素]]></content>
+    <content type="text"><![CDATA[视口单位 vw = view width vh = view height 这两个单位是CSS3引入的，以上称为视口单位允许我们更接近浏览器窗口定义大小。 Q：什么是视口？A：在桌面端，视口指的是浏览器的可视区域；而在移动端，它涉及3个视口：Layout Viewport（布局视口），Visual Viewport（视觉视口），Ideal Viewport（理想视口）。 视口单位中的“视口”，桌面端指的是浏览器的内部的可视区域大小；移动端指的就是Viewport中的Layout Viewport。 vh/vw与%区别 单位 含义 vw 1vw = 视口宽度的1% vh 1vh = 视口高度的1% vmin 选取vw和vh中最小的那个 vmax 选取vw和vh中最大的那个 比如：浏览器视口尺寸为370px,那么 1vw = 370px * 1% = 3.7px(浏览器会四舍五入向下取4) 就是说视口宽度为100vw&amp;100vh 兼容问题在移动端 iOS 9 以上以及 Android 4.4 以上获得支持，并且在微信 x5 内核中也得到完美的全面支持。 兼容性 rem与em的区别： rem是相对于根元素（html）的字体大小，而em是相对于其父元素的字体大小著作权归作者所有。 em最多取到小数点的后三位 如下： 123456789101112131415161718192021&lt;style&gt; html&#123; font-size: 20px; &#125; body&#123; font-size: 1.4rem; /* 1rem = 28px */ padding: 0.7rem; /* 0.7rem = 14px */ &#125; div&#123; padding: 1em; /* 1em = 28px */ &#125; span&#123; font-size:1rem; /* 1rem = 20px */ padding: 0.9em; /* 1em = 18px */ &#125;&lt;/style&gt;&lt;html&gt; &lt;body&gt; &lt;div&gt; &lt;span&gt;&lt;/span&gt; &lt;/div&gt; &lt;/body&gt;&lt;/html&gt; 注意： 当元素自身设置了字体大小，那么如果它的其他css属性也使用em单位，则会基于它自身的字体大小。（就像上面例子的span的padding一样）著作权归作者所有。 基于上面这些原因，建议使用rem，因为em使用不当的话，当出现多层继承时，会很容易混淆如下： 12345678910111213141516171819&lt;style&gt; html&#123; font-size: 20px; &#125; body&#123; font-size: 0.9em; /* 1rem = 18px */ &#125; div&#123; font-size: 0.8em; /* 1em = 14.4px */ &#125; span&#123; font-size: 0.9em; /* 1rem = 12.96px */ &#125;&lt;/style&gt;&lt;html&gt; &lt;body&gt; &lt;div&gt; &lt;span&gt;&lt;/span&gt; &lt;/div&gt; &lt;/body&gt;&lt;/html&gt; 容易造成混乱，最后自己都不知道某元素的实际字体大小了； 兼容性 当然，em和rem各有优缺点，简单的使用规则： 如果这个属性根据它的font-size进行测量，则使用em； 其他的一切事物属性均使用rem; 两者都不使用的情况： 多列布局，一般使用百分比% 这里提供了一个px、em、rem单位的转换工具 http://pxtoem.com/ 运用仅使用vw作为CSS单位 根据设计稿的尺寸转换为vw单位(SASS函数编译) 1234//iPhone 6尺寸作为设计稿基准$vm_base: 375@function vm($px) @return ($px / $vm_base) * 100vw CSS3计算calc和vw单位巧妙实现滚动条出现页面不跳动123.wrap-outer &#123; margin-left: calc(100vw - 100%)&#125; calc是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上)； 兼容性 100vw相对于浏览器的window.innerWidth，是浏览器的内部宽度，注意，滚动条宽度也计算在内！而100%是可用宽度，是不含滚动条的宽度。 calc(100vw - 100%)就是浏览器滚动条的宽度大小（如果有，如果没有滚动条则是0）！左右都有一个滚动条宽度（或都是0）被占用，主体内容就可以永远居中浏览器啦，从而没有任何跳动！]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -19,8 +19,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -31,8 +31,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -43,8 +43,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
