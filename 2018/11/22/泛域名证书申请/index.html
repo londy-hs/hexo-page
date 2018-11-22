@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL">
+<meta name="description" content="一键快速申请Let&apos;s Encrypt泛域名SSL证书及证书安装方法">
 <meta name="keywords" content="nginx,ssl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL">
-<meta property="og:url" content="http://londy.cc/2017/10/29/免费SSL证书-Let’s-Encrypt安装使用教程-Nginx配置SSL/index.html">
+<meta property="og:title" content="一键快速申请Let&#39;s Encrypt泛域名SSL证书及证书安装方法">
+<meta property="og:url" content="http://londy.cc/2018/11/22/泛域名证书申请/index.html">
 <meta property="og:site_name" content="Londy的博客">
-<meta property="og:description" content="免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL">
+<meta property="og:description" content="一键快速申请Let&apos;s Encrypt泛域名SSL证书及证书安装方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-04T02:56:15.179Z">
+<meta property="og:updated_time" content="2018-11-22T03:09:19.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL">
-<meta name="twitter:description" content="免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL">
+<meta name="twitter:title" content="一键快速申请Let&#39;s Encrypt泛域名SSL证书及证书安装方法">
+<meta name="twitter:description" content="一键快速申请Let&apos;s Encrypt泛域名SSL证书及证书安装方法">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://londy.cc/2017/10/29/免费SSL证书-Let’s-Encrypt安装使用教程-Nginx配置SSL/"/>
+  <link rel="canonical" href="http://londy.cc/2018/11/22/泛域名证书申请/"/>
 
 
 
 
 
-  <title>免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL | Londy的博客</title>
+  <title>一键快速申请Let's Encrypt泛域名SSL证书及证书安装方法 | Londy的博客</title>
   
 
 
@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://londy.cc/2017/10/29/免费SSL证书-Let’s-Encrypt安装使用教程-Nginx配置SSL/">
+    <link itemprop="mainEntityOfPage" href="http://londy.cc/2018/11/22/泛域名证书申请/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Londy">
@@ -344,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL</h1>
+          <h1 class="post-title" itemprop="name headline">一键快速申请Let's Encrypt泛域名SSL证书及证书安装方法</h1>
         
 
         <div class="post-meta">
@@ -356,8 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T14:11:16+08:00">
-                2017-10-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T10:03:15+08:00">
+                2018-11-22
               </time>
             
 
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-04T10:56:15+08:00">
-                2018-06-04
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-22T11:09:19+08:00">
+                2018-11-22
               </time>
             
           </span>
@@ -408,7 +408,7 @@
 
           
           
-             <span id="/2017/10/29/免费SSL证书-Let’s-Encrypt安装使用教程-Nginx配置SSL/" class="leancloud_visitors" data-flag-title="免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL">
+             <span id="/2018/11/22/泛域名证书申请/" class="leancloud_visitors" data-flag-title="一键快速申请Let's Encrypt泛域名SSL证书及证书安装方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,043
+                  756
                 </span>
               
 
@@ -449,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  3
                 </span>
               
             </span>
@@ -457,7 +457,7 @@
 
           
               <div class="post-description">
-                  免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL
+                  一键快速申请Let's Encrypt泛域名SSL证书及证书安装方法
               </div>
           
 
@@ -474,66 +474,42 @@
       
 
       
-        <h2 id="一-、快速获取Let’s-Encrypt免费SSL证书"><a href="#一-、快速获取Let’s-Encrypt免费SSL证书" class="headerlink" title="一 、快速获取Let’s Encrypt免费SSL证书"></a>一 、快速获取Let’s Encrypt免费SSL证书</h2><p>首先确保你的系统已安装git，然后再进行以下操作：</p>
-<h3 id="在这里只介绍常用的两个获取证书的模式"><a href="#在这里只介绍常用的两个获取证书的模式" class="headerlink" title="在这里只介绍常用的两个获取证书的模式"></a>在这里只介绍常用的两个获取证书的模式</h3><h4 id="Standalone"><a href="#Standalone" class="headerlink" title="Standalone"></a>Standalone</h4><p>使用独立模式进行自动验证，需要在 目标服务器 上运行 Let’s Encrypt 客户端，并指定 certonly 和 –standalone参数。本模式需要绑定 80 或 443 端口进行域名验证，所以如果服务器上已有web server运行并侦听这2个端口，则需要先关闭web server。</p>
-<p>运行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./letsencrypt-auto certonly --standalone  -d yourwebsite.com --email youremail.com</span><br></pre></td></tr></table></figure>
-<h4 id="Webroot"><a href="#Webroot" class="headerlink" title="Webroot"></a>Webroot</h4><p>如果 目标服务器 已有web server运行，并且不能够关闭服务来获取和安装证书，可以使用 Webroot plugin。在运行 Let’s Encrypt 客户端时指定 certonly和 –webroot 参数，并使用 –webroot-path 或-w 参数来指定 webroot 目录，比如 –webroot-path /web/www</p>
-<p>运行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./letsencrypt-auto certonly --standalone  -d yourwebsite.com --email youremail.com</span><br><span class="line">./letsencrypt-auto certonly --webroot --webroot-path /web/www -d yourwebsite.com --agree-tos --email youremail</span><br></pre></td></tr></table></figure> 
-<h4 id="以下是使用独立模式来获取证书的："><a href="#以下是使用独立模式来获取证书的：" class="headerlink" title="以下是使用独立模式来获取证书的："></a>以下是使用独立模式来获取证书的：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/letsencrypt/letsencrypt </span><br><span class="line">cd letsencrypt</span><br><span class="line">./letsencrypt-auto certonly --standalone  -d yourwebsite.com --email youremail.com</span><br></pre></td></tr></table></figure> 
-<p>上述命令中<code>yourwebsite.com</code>为你的域名，如果有二级域名则在后面继续加 <code>-d hs.yourwebsite.com</code> , <code>--email</code> 参数后面需要填写你的邮箱。如果不写邮箱这个参数，在安装过程中会提示让你输入你的邮箱（邮箱也是很重要的，在后期证书到期并且没有自动续期，会给你发邮件提示的）。</p>
-<p>可能会出现错误：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OSError: Command /opt/eff.org/certbot/venv/bin/python2.7 - setuptools pkg_resources pip wheel failed with error code 2</span><br></pre></td></tr></table></figure> 
-<p>通过搜索，找到了原因是说，系统安装了多个版本的python，那么怎么解决呢？<br>解决方法： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get purge python-virtualenv python3-virtualenv virtualenv</span><br><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>  
-<p>然后再次执行ssl证书生成命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./letsencrypt-auto certonly --standalone  -d yourwebsite.com --email youremail.com</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>正确之后会出现图形界面输入邮箱、条款、等信息（略…）</p>
-</blockquote>
-<p>当出现以下信息时，则证明你的证书已申请成功：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">IMPORTANT NOTES:</span><br><span class="line">- Congratulations! Your certificate and chain have been saved at</span><br><span class="line">/etc/letsencrypt/live/yourwebsite.com/fullchain.pem. Your cert will</span><br><span class="line">expire on 2017-12-26. To obtain a new version of the certificate in</span><br><span class="line">the future, simply run Let&apos;s Encrypt again.</span><br><span class="line">- If you like Let&apos;s Encrypt, please consider supporting our work by:</span><br><span class="line">Donating to ISRG / Let&apos;s Encrypt:  https://letsencrypt.org/donate</span><br><span class="line">Donating to EFF:                    https://eff.org/donate-le</span><br></pre></td></tr></table></figure> 
-<h2 id="二-、配置"><a href="#二-、配置" class="headerlink" title="二 、配置"></a>二 、配置</h2><p>生成证书后。生成的位置位于<code>/etc/letsencrypt/live/你的域名/</code> 目录下（记得备份下）。<br>文件介绍：  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">文件名</th>
-<th style="text-align:center">内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">cert.pem</td>
-<td style="text-align:center">服务端证书</td>
-</tr>
-<tr>
-<td style="text-align:center">chain.pem</td>
-<td style="text-align:center">浏览器需要的所有证书,但不包括服务端证书，比如根证书和中间证书</td>
-</tr>
-<tr>
-<td style="text-align:center">fullchain.pem</td>
-<td style="text-align:center">包括了cert.pem和chain.pem的内容</td>
-</tr>
-<tr>
-<td style="text-align:center">privkey.pem</td>
-<td style="text-align:center">证书的私钥</td>
-</tr>
-</tbody>
-</table>
-<p>在这里我们只需要两个文件 <code>fullchain.pem</code>和<code>privkey.pem</code></p>
-<p>在nginx配置文件的server中增加下面代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl ipv6only=on;</span><br><span class="line">  root  /wwwroot/hs/hs.yourwebsite.org;</span><br><span class="line">  ssl on;</span><br><span class="line">    ssl_certificate /etc/letsencrypt/live/hs.yourwebsite.org/fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/letsencrypt/live/hs.yourwebsite.org/privkey.pem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssl_certificate /etc/letsencrypt/live/hs.yourwebsite.org/fullchain.pem;  #对应位置要写对</span><br><span class="line">ssl_certificate_key /etc/letsencrypt/live/hs.yourwebsite.org/privkey.pem;#对应位置要写对</span><br></pre></td></tr></table></figure>
-<p>重启nginx </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>打开网站：<a href="https://your.website.com" target="_blank" rel="noopener">https://your.website.com</a> 如果看到浏览器的绿色标志，恭喜你设置成功！</p>
-</blockquote>
-<h2 id="三、-更新以及自动更新"><a href="#三、-更新以及自动更新" class="headerlink" title="三、    更新以及自动更新"></a>三、    更新以及自动更新</h2><h3 id="手动更新："><a href="#手动更新：" class="headerlink" title="手动更新："></a>手动更新：</h3><p><code>./letsencrypt-auto renew</code> </p>
-<h3 id="自动更新："><a href="#自动更新：" class="headerlink" title="自动更新："></a>自动更新：</h3><p>首先创建脚本任务，保存目录为你要想保存到的目录下面，创建  <code>/etc/letsssl/restartup.sh</code>  在这里我把脚本文件存放在了<code>/etc/letsssl/</code>目录下。</p>
-<p>脚本代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"># This script renews all the Let&apos;s Encrypt certificates with a validity &lt; 30 days</span><br><span class="line">if ! /letsencrypt/letsencrypt-auto renew &gt; /var/log/letsencrypt/renew.log 2&gt;&amp;1 ; then</span><br><span class="line">echo Automated renewal failed:</span><br><span class="line">service nginx reload;</span><br><span class="line">exit 1;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><br>增加权限：<br><code>chmod +x</code> 设定的脚本.sh;<br>创建定时任务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line"> 0 0 3 * * /bin/sh /etc/letsssl/restartup.sh &gt;/dev/null 2&gt;&amp;1 &amp; #每月1号凌晨3点执行</span><br></pre></td></tr></table></figure>  </p>
-<h2 id="四、撤销证书"><a href="#四、撤销证书" class="headerlink" title="四、撤销证书"></a>四、撤销证书</h2><p>执行以下代码就可直接撤销证书：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./letsencrypt-auto revoke --cert-path /etc/letsencrypt/live/yourwebsite.com/cert.pem</span><br></pre></td></tr></table></figure></p>
+        <p>Let’s Encrypt是目前使用最为广泛的免费SSL证书，早在2017年7月份起Let’s Encrypt官方就发布将在2018年上线泛域名免费SSL证书。现在终于可以申请Let’s Encrypt的泛域名免费SSL证书。暂时只能通过DNS方式获取，支持的DNS解析有很多，国内可以通过腾讯云的DNSPod.cn域名API和阿里云域名API自动颁发Let’s Encrypt泛域名免费SSL证书。</p>
+<h3 id="Let’s-Encrypt泛域名申请准备工作"><a href="#Let’s-Encrypt泛域名申请准备工作" class="headerlink" title="Let’s Encrypt泛域名申请准备工作"></a>Let’s Encrypt泛域名申请准备工作</h3><p>这篇文章后面用到的一键申请Let’s Encrypt泛域名SSL证书，是利用第三方域名DNS API接口快速申请的，如果我们域名有用哪家的DNS，然后到对应的商家申请API。</p>
+<h3 id="安装依赖程序"><a href="#安装依赖程序" class="headerlink" title="安装依赖程序"></a>安装依赖程序</h3><ol>
+<li>Debian/Ubuntu</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get install curl -y &amp;&amp; apt-get install cron -y &amp;&amp; apt-get install socat -y</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Centos</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update &amp;&amp; yum install curl -y &amp;&amp; yum install cron -y &amp;&amp; yum install socat -y</span><br></pre></td></tr></table></figure>
+<h3 id="下载ACME-SH"><a href="#下载ACME-SH" class="headerlink" title="下载ACME.SH"></a>下载ACME.SH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
+<h3 id="获取域名API"><a href="#获取域名API" class="headerlink" title="获取域名API"></a>获取域名API</h3><p>方法很简单，如果是腾讯云注册的域名，默认使用的是DNSPod.cn，然后把要申请免费证书的域名接入到DNSPod，并使用DNSPod的NS服务器进行解析。然后再按下图操作创建API。创建API后需要注意，弹出的窗口显示完整的“Token”，并且只显示这一次，所以请一定复制保存好。</p>
+<h3 id="申请安装证书"><a href="#申请安装证书" class="headerlink" title="申请安装证书"></a>申请安装证书</h3><ol>
+<li>依次输入下面代码。DP_Id=””中请填写你的ID，DP_Key=””中请填写Token。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export DP_Id=&quot;*****&quot;</span><br><span class="line">export DP_Key=&quot;******&quot;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>输入下面命令申请免费SSL证书。其中代码中的“londy.cc”请改成自己域名即可。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.acme.sh/acme.sh --issue --dns dns_dp -d londy.cc -d *.londy.cc</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>接下来脚本会自动等待 120 秒来验证信息，签发成功后，就会给出 CSR、KEY、CERT 保存的路径  <code>/root/.acme.sh/londy.cc/</code></p>
+</li>
+<li><p>显示如下信息表示申请成功。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Fri Jan 22 10:51:59 CST 2018] Your cert is in  /root/.acme.sh/londy.cc/londy.cc.cer </span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] Your cert key is in  /root/.acme.sh/londy.cc/londy.cc.key </span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] The intermediate CA cert is in  /root/.acme.sh/londy.cc/ca.cer </span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] And the full chain certs is there:  /root/.acme.sh/londy.cc/fullchain.cer</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>将证书托管到腾讯云，然后再将 londy.cc.cer 的内容填到证书栏，将 londy.cc.key 的内容填到私钥栏，再点击上传证书即可。</li>
+</ol>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ol>
+<li>在申请签发的过程中创建API后需要注意，弹出的窗口显示完整的“Token”，并且只显示这一次，所以请一定复制保存好。</li>
+<li>下载 <code>acme.sh</code>脚本需要在 <code>acme.sh</code> 以及 <code>github.com</code> 拉取文件，所以国内的一些机器可能无法正常运行(一般服务器自带<code>acme.sh</code>)。</li>
+<li>签发的证书有效期为 3 个月，之后需要重新申请。</li>
+</ol>
+<p>如果你想查看其他DNS商家申请方法，可以<a href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md" target="_blank" rel="noopener">点击此处</a>：</p>
 
       
     </div>
@@ -554,7 +530,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://londy.cc/2017/10/29/免费SSL证书-Let’s-Encrypt安装使用教程-Nginx配置SSL/" title="免费SSL证书 : Let’s Encrypt安装使用教程: Nginx配置SSL">http://londy.cc/2017/10/29/免费SSL证书-Let’s-Encrypt安装使用教程-Nginx配置SSL/</a>
+    <a href="http://londy.cc/2018/11/22/泛域名证书申请/" title="一键快速申请Let's Encrypt泛域名SSL证书及证书安装方法">http://londy.cc/2018/11/22/泛域名证书申请/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -592,15 +568,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/04/vw-wh/" rel="next" title="Vh和Vw的基本认识">
+                <i class="fa fa-chevron-left"></i> Vh和Vw的基本认识
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/26/webpack-project/" rel="prev" title="webpack基本配置">
-                webpack基本配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -821,7 +797,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-、快速获取Let’s-Encrypt免费SSL证书"><span class="nav-number">1.</span> <span class="nav-text">一 、快速获取Let’s Encrypt免费SSL证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在这里只介绍常用的两个获取证书的模式"><span class="nav-number">1.1.</span> <span class="nav-text">在这里只介绍常用的两个获取证书的模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Standalone"><span class="nav-number">1.1.1.</span> <span class="nav-text">Standalone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webroot"><span class="nav-number">1.1.2.</span> <span class="nav-text">Webroot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以下是使用独立模式来获取证书的："><span class="nav-number">1.1.3.</span> <span class="nav-text">以下是使用独立模式来获取证书的：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-、配置"><span class="nav-number">2.</span> <span class="nav-text">二 、配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、-更新以及自动更新"><span class="nav-number">3.</span> <span class="nav-text">三、    更新以及自动更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动更新："><span class="nav-number">3.1.</span> <span class="nav-text">手动更新：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动更新："><span class="nav-number">3.2.</span> <span class="nav-text">自动更新：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、撤销证书"><span class="nav-number">4.</span> <span class="nav-text">四、撤销证书</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Let’s-Encrypt泛域名申请准备工作"><span class="nav-number">1.</span> <span class="nav-text">Let’s Encrypt泛域名申请准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖程序"><span class="nav-number">2.</span> <span class="nav-text">安装依赖程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载ACME-SH"><span class="nav-number">3.</span> <span class="nav-text">下载ACME.SH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取域名API"><span class="nav-number">4.</span> <span class="nav-text">获取域名API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#申请安装证书"><span class="nav-number">5.</span> <span class="nav-text">申请安装证书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">5.1.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
             
 
           </div>
