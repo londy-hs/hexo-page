@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Londy的博客">
 <meta property="og:description" content="一键快速申请Let&apos;s Encrypt泛域名SSL证书及证书安装方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T03:09:19.922Z">
+<meta property="og:updated_time" content="2018-11-23T06:16:19.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一键快速申请Let&#39;s Encrypt泛域名SSL证书及证书安装方法">
 <meta name="twitter:description" content="一键快速申请Let&apos;s Encrypt泛域名SSL证书及证书安装方法">
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-22T11:09:19+08:00">
-                2018-11-22
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T14:16:19+08:00">
+                2018-11-23
               </time>
             
           </span>
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  756
+                  805
                 </span>
               
 
@@ -479,11 +479,11 @@
 <h3 id="安装依赖程序"><a href="#安装依赖程序" class="headerlink" title="安装依赖程序"></a>安装依赖程序</h3><ol>
 <li>Debian/Ubuntu</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get install curl -y &amp;&amp; apt-get install cron -y &amp;&amp; apt-get install socat -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install  -y curl cron socat</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>Centos</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update &amp;&amp; yum install curl -y &amp;&amp; yum install cron -y &amp;&amp; yum install socat -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y &amp;&amp; yum install  -y curl cron socat</span><br></pre></td></tr></table></figure>
 <h3 id="下载ACME-SH"><a href="#下载ACME-SH" class="headerlink" title="下载ACME.SH"></a>下载ACME.SH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
 <h3 id="获取域名API"><a href="#获取域名API" class="headerlink" title="获取域名API"></a>获取域名API</h3><p>方法很简单，如果是腾讯云注册的域名，默认使用的是DNSPod.cn，然后把要申请免费证书的域名接入到DNSPod，并使用DNSPod的NS服务器进行解析。然后再按下图操作创建API。创建API后需要注意，弹出的窗口显示完整的“Token”，并且只显示这一次，所以请一定复制保存好。</p>
 <h3 id="申请安装证书"><a href="#申请安装证书" class="headerlink" title="申请安装证书"></a>申请安装证书</h3><ol>
@@ -500,10 +500,13 @@
 <li><p>显示如下信息表示申请成功。</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Fri Jan 22 10:51:59 CST 2018] Your cert is in  /root/.acme.sh/londy.cc/londy.cc.cer </span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] Your cert key is in  /root/.acme.sh/londy.cc/londy.cc.key </span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] The intermediate CA cert is in  /root/.acme.sh/londy.cc/ca.cer </span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] And the full chain certs is there:  /root/.acme.sh/londy.cc/fullchain.cer</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Fri Jan 22 10:51:59 CST 2018] Your cert is in  /root/.acme.sh/londy.cc/londy.cc.cer</span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] Your cert key is in  /root/.acme.sh/londy.cc/londy.cc.key</span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] The intermediate CA cert is in  /root/.acme.sh/londy.cc/ca.cer</span><br><span class="line">[Fri Jan 22 10:51:59 CST 2018] And the full chain certs is there:  /root/.acme.sh/londy.cc/fullchain.cer</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>将证书托管到腾讯云，然后再将 londy.cc.cer 的内容填到证书栏，将 londy.cc.key 的内容填到私钥栏，再点击上传证书即可。</li>
 </ol>
+<h3 id="自动续期"><a href="#自动续期" class="headerlink" title="自动续期"></a>自动续期</h3><p>输入<code>crontab -l</code> 查看自动执行的脚本任务，看到如下脚本，证明自动续期已添加</p>
+<p><code>15 0 * * * &quot;/root/.acme.sh&quot;/acme.sh --cron --home &quot;/root/.acme.sh&quot; &gt;</code></p>
+<p>到期自动续期！不放心可手动执行该脚本！</p>
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ol>
 <li>在申请签发的过程中创建API后需要注意，弹出的窗口显示完整的“Token”，并且只显示这一次，所以请一定复制保存好。</li>
 <li>下载 <code>acme.sh</code>脚本需要在 <code>acme.sh</code> 以及 <code>github.com</code> 拉取文件，所以国内的一些机器可能无法正常运行(一般服务器自带<code>acme.sh</code>)。</li>
@@ -797,7 +800,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Let’s-Encrypt泛域名申请准备工作"><span class="nav-number">1.</span> <span class="nav-text">Let’s Encrypt泛域名申请准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖程序"><span class="nav-number">2.</span> <span class="nav-text">安装依赖程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载ACME-SH"><span class="nav-number">3.</span> <span class="nav-text">下载ACME.SH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取域名API"><span class="nav-number">4.</span> <span class="nav-text">获取域名API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#申请安装证书"><span class="nav-number">5.</span> <span class="nav-text">申请安装证书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">5.1.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Let’s-Encrypt泛域名申请准备工作"><span class="nav-number">1.</span> <span class="nav-text">Let’s Encrypt泛域名申请准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖程序"><span class="nav-number">2.</span> <span class="nav-text">安装依赖程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载ACME-SH"><span class="nav-number">3.</span> <span class="nav-text">下载ACME.SH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取域名API"><span class="nav-number">4.</span> <span class="nav-text">获取域名API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#申请安装证书"><span class="nav-number">5.</span> <span class="nav-text">申请安装证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动续期"><span class="nav-number">6.</span> <span class="nav-text">自动续期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">6.1.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
             
 
           </div>
